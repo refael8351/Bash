@@ -1,28 +1,56 @@
-#!/bin/python
+
 from time import sleep
 import boto3
+def create_instance():
+        ec2 = boto3.resource('ec2')
+        instances = ec2.create_instances(
+                ImagesId=input("\nEnter Image ID: "),
+                MinCount=1,
+                MaxCount=int(input("Enter How Much instances Do You Want To Setup?\n")),
+                InstanceType='t2.micro',
+                KeyName='refael.pem'
+        )
+def stop_instance():
+        instances=input("Enter ID's of Exited instances to Stop: ")
+        ids = [instances]
+        ec2 = boto3.resource('ec2')
+        ec2.instances.folter(InstanceIds = ids).stop()
 
-X = (input("\nWitch Operation System Do you Want? "))
-if X == "ubuntu" or X == "Ubuntu":
-	print("OS Version: Ubuntu_18.04")
-	ID = 'ami-00978328f54e31526'
-elif X == "debian" or X == "Debian":
-	print("OS Version: Debian_11")
-	ID = 'ami-0c7c4e3c6b4941f0f'
-elif X == "Red Hat" or X == "RedHat" or X == "red hat" or X == "redhat":
-	print("OS Version: Red Hat_8")
-	ID = 'ami-092b43193629811af'
-elif X == "windows" or X == "Windows" or X == "Windows Server" or X == "windows server":
-	print("OS Version: Microsoft Windows Server 2022")
-	ID = 'ami-0321c04d7f279eb63'
-else:
-	print("\nEnter Good Operation System: \nOption: Ubuntu / RedHat / Debian / Windows")
-	sleep(3)
-ec2 = boto3.resource('ec2')
-instances = ec2.create_instances(
-	ImagesId=ID,
-	MinCount=1,
-	MaxCount=int(input("Enter How Much instances Do You Want To Setup?\n")),
-	InstanceType='t2.micro',
-	KeyName='refael.pem'
-)
+def start_instance():
+        instances=input("Enter ID's of Exited instances to Start: ")
+        ids = [instances]
+        ec2 = boto3.resource('ec2')
+        ec2.instances.folter(InstanceIds = ids).start()
+
+def kill_instance():
+        instances=input("Enter ID's of Exited instances to Kill: ")
+        ids = ['instances']
+        ec2 = boto3.resource('ec2')
+        ec2.instances.folter(InstanceIds = ids).terminate()
+
+
+def describe_instance():
+        client = boto3.client('ec2')
+        response = client.describe_instances()
+        for r in response['Reservations']:
+                for i in r['Instances']:
+                        print("\nID: " + i['InstanceId'] + "\nIP Address: " + i['PublicIpAddress'] + "\n-----------------------------\n")
+def menu():
+        while("true"):
+                ch=input("Menu:\n1.Describe EC2\n2.Create EC2\n3.Start EC2\n4.Stop EC2\n5.Kill EC2\n")
+                if ch == "1":
+                        print("Show infomation About Exited EC2 Instances ID+IP \n")
+                        sleep (3)
+                        describe_instance()
+                elif ch == "2":
+                        create_instance()
+                elif ch == "3":
+                        start_instance()
+                elif ch == "4":
+                        stop_instance()
+                elif ch == "5":
+                        kill_instance()
+                else:
+                        print("\nEnter 1-5 Only !!!\n")
+                        sleep (3)
+                        continue

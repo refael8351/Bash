@@ -4,7 +4,7 @@ import boto3
 def create_instance():
         ec2 = boto3.resource('ec2')
         instances = ec2.create_instances(
-                ImagesId=input("\nEnter Image ID: "),
+                ImageId=input("\nEnter Image ID: "),
                 MinCount=1,
                 MaxCount=int(input("Enter How Much instances Do You Want To Setup?\n")),
                 InstanceType='t2.micro',
@@ -20,14 +20,13 @@ def start_instance():
         instances=input("Enter ID's of Exited instances to Start: ")
         ids = [instances]
         ec2 = boto3.resource('ec2')
-        ec2.instances.folter(InstanceIds = ids).start()
+        ec2.instances.filter(InstanceIds = ids).start()
 
 def kill_instance():
         instances=input("Enter ID's of Exited instances to Kill: ")
-        ids = ['instances']
+        ids = [instances]
         ec2 = boto3.resource('ec2')
-        ec2.instances.folter(InstanceIds = ids).terminate()
-
+        ec2.instances.filter(InstanceIds = ids).terminate()
 
 def describe_instance():
         client = boto3.client('ec2')

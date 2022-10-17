@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # 1. Sys info
 # 2. Make directory
@@ -6,9 +7,7 @@
 # 5. Update PC and install recommand packeges
 # 6. Kill top Proccess By PID
 
-#!/bin/bash
-DONE = "" 2>/dev/null
-EXIT = "no" 2>/dev/null
+X="no"
 while [ "True" == "True" ]
 do
 	echo -e "\n<Menu>\n1.Sys info\n2.make directory\n3.sshpass remote\n4.Service chmod\n5.Update PC\n6.Kill top Proccess By PID\n"
@@ -110,13 +109,13 @@ do
 			echo -e "\nDone..\n"
 	else
 		echo -e "Enter 1-6 Only !!!"
-	fi
-	echo -e "$DONE"
-	echo -e "\nDo You Want To Exit? y/n \n"
-	read EXIT
-	if [ $EXIT == "Yes" ] || [ $EXIT == "yes" ] || [ $EXIT == "y" ] || [ $EXIT == "Y" ]
-	then
-		echo -e "O.K Bye Bye ..."
-		break
+        	fi
+	        echo -e "\nDo You Want To Exit? y/n \n"
+	        read X
+	        if [ $X == "Yes" ] || [ $X == "yes" ] || [ $X == "y" ] || [ $X == "Y" ]
+	        then
+		        echo -e "O.K Bye Bye ..."
+		        break
+	        fi
 	fi
 done

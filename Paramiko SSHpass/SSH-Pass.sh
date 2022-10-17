@@ -15,7 +15,7 @@ sshpass -p $PASS ssh $USER@$IP $1
 
 DONE=""
 EXIT="no"
-while [ "1" == "1" ]
+while true
 do
 	echo -e "Enter Your Command:\n1.Creating File\n2.Creating a Folder\n3.Creating a User\n"
 	read CH

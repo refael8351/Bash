@@ -1,5 +1,4 @@
 import boto3
-from time import sleep
 
 
 def create_instance():
@@ -11,3 +10,6 @@ def create_instance():
         InstanceType='t2.micro',
         KeyName='refael.pem'
     )
+
+
+create_instance()

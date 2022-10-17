@@ -16,10 +16,10 @@ fi
 # This script does a very simple test for checking Uses disk space.
 
 space=`df -h | awk '{print $5}' | grep % | grep -v Use | sort -n | tail -1 | cut -d "%" -f1 -`
-alertvalue="80"
+value="80"
 
-if [ "$space" -ge "$alertvalue" ]; then
-    echo -e "At least one of my disks is nearly full!\n$alertvalue"
+if [ "$space" -ge "$value" ]; then
+    echo -e "At least one of my disks is nearly full!\n$value"
 else
-    echo -e "Disk space normal\n$alertvalue"
+    echo -e "Disk space normal\n$value"
 fi

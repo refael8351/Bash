@@ -1,12 +1,13 @@
+#!/bin/bash
+
 #1. System information
 #2. Creating User + Group and Put the User in sudo Group
 #3. Create File and Change Permmission to The File
 #4. Create tgz file and Commpress inside (10 txt Files)
 #5. service Change Mode (Up/Down/Restart)
 
-#!/bin/bash
-DONE = "" 2>/dev/null
-EXIT = "no" 2>/dev/null
+DONE="" 2>/dev/null
+EXIT="no" 2>/dev/null
 while [ "True" == "True" ]
 do
 	echo -e "<< Menu >>\n1.System infomation\n2. Creating User + Group and Put the User in sudo Group\n3. Create File and Change Permmission to The File\nCreate tgz file and Commpress inside (10 txt Files)\nservice Change Mode (Up/Down/Restart)\n6.sshpass Remote\n"

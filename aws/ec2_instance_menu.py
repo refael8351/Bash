@@ -1,6 +1,7 @@
 
 from time import sleep
 import boto3
+
 def create_instance():
         ec2 = boto3.resource('ec2')
         instances = ec2.create_instances(
@@ -33,7 +34,7 @@ def describe_instance():
         response = client.describe_instances()
         for r in response['Reservations']:
                 for i in r['Instances']:
-                        print("\nID: " + i['InstanceId'] + "\nIP Address: " + i['PublicIpAddress'] + "\n-----------------------------\n")
+                        print("\nID: " + i['InstanceId'] + "\nPrivate IP Address: " + i['PublicIpAddress'] + "\n-----------------------------\n")
 def menu():
         while("true"):
                 ch=input("Menu:\n1.Describe EC2\n2.Create EC2\n3.Start EC2\n4.Stop EC2\n5.Kill EC2\n")
@@ -53,3 +54,6 @@ def menu():
                         print("\nEnter 1-5 Only !!!\n")
                         sleep (3)
                         continue
+
+
+menu()

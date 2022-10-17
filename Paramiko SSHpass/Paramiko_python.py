@@ -2,19 +2,21 @@
 
 import paramiko
 import sys
-
+print(sys.argv[1])
 nbytes = 4096
-hostname = '192.168.1.1'
+hostname = '127.0.0.1'
 port = 22
 username = 'refael'
 password = 'rootroot'
-command = '''	'''
+command = '''
+echo {} > /home/refael/Desktop/Connection_ssh/infomation.txt'''.format(sys.argv[1])
 
-client = paramiko.Transporrt({hostname, port})
+client = paramiko.Transport((hostname, port))
 client.connect(username=username, password=password)
 
 stdout_data = []
 stderr_data = []
+
 session = client.open_channel(kind='session')
 session.exec_command(command)
 

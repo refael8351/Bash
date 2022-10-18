@@ -15,7 +15,7 @@ RUN set -x \
     apt-get install sshpass -y \
 
 
-# Forward request logs to docker log collector
+# Passing Logs Masseges to Difrient Location
 #RUN ln -sf /dev/stdout /var/log/net4u/access.log \
 #  && ln -sf /dev/stderr /var/log/net4u/error.log
 

@@ -12,8 +12,7 @@ RUN set -x \
     apt-get install openssh-server -y \
     apt-get install net-tools -y \
     apt-get install tcpdump -y \
-    apt-get install sshpass -y \
-
+    apt-get install sshpass -y 
 
 # Passing Logs Masseges to Difrient Location
 #RUN ln -sf /dev/stdout /var/log/net4u/access.log \

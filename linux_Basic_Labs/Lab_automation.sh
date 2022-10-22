@@ -52,7 +52,7 @@ do
         fi
         echo "Do You Want To Exit? "
         read EXIT
-        if [ $EXIT == "yes" ] || [ $EXIT == "y" ]
+        if [ $EXIT == "yes" ] || [ $EXIT == "y" ] || [ $EXIT == "Yes" ] || [ $EXIT == "YES" ]
         then
                 echo -e "Bye Bye .."
                 break

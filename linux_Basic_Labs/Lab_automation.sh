@@ -34,7 +34,7 @@ do
                         continue
                 else
                         echo -e "\n\nYour Network is Unreachable...\nNow we try to Make it Work\nPlease Wait..."
-                        sudo service networkd-dispatcher restart
+                        sudo service networking restart
                         ping -c3 8.8.8.8
                 fi
         elif [ $CH == "3" ]

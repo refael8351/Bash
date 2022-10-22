@@ -10,7 +10,7 @@ DONE=""
 EXIT="no"
 while [ "True" == "True" ]
 do
-	echo -e "<< Menu >>\n1.System infomation\n2. Creating User + Group and Put the User in sudo Group\n3. Create File and Change Permmission to The File\nCreate tgz file and Commpress inside (10 txt Files)\nservice Change Mode (Up/Down/Restart)\n6.sshpass Remote\n"
+	echo -e "<< Menu >>\n1.System information\n2. Creating User + Group and Put the User in sudo Group\n3. Create File and Change Permission to The File\nCreate tgz file and Compress inside (10 txt Files)\nService Change Mode (Up/Down/Restart)\n6.sshpass Remote\n"
 	read CH
 	if [ $CH == "1" ]
 	then

@@ -6,8 +6,8 @@
 #4. Create tgz file and Commpress inside (10 txt Files)
 #5. service Change Mode (Up/Down/Restart)
 
-DONE="" 2>/dev/null
-EXIT="no" 2>/dev/null
+DONE=""
+EXIT="no"
 while [ "True" == "True" ]
 do
 	echo -e "<< Menu >>\n1.System infomation\n2. Creating User + Group and Put the User in sudo Group\n3. Create File and Change Permmission to The File\nCreate tgz file and Commpress inside (10 txt Files)\nservice Change Mode (Up/Down/Restart)\n6.sshpass Remote\n"
@@ -38,8 +38,8 @@ do
 		read FILE
 		touch $FILE.txt
 		sudo chmod 777 $FILE.txt 2>/dev/null
-		DONE+=" < Permission to New File Called: $FILE > " 
-		find ./$FILE.txt 2>/dev/null
+		DONE+=" < Permission to New File Called: $FILE.txt > "
+		find ./*/$FILE.txt 2>/dev/null
 	elif [ $CH == "4" ]
 	then
 		echo -e "Enter a Name for the tgz file: "

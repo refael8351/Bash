@@ -2,8 +2,8 @@
 
 #1. System information
 #2. Creating User + Group and Put the User in sudo Group
-#3. Create File and Change Permmission to The File
-#4. Create tgz file and Commpress inside (10 txt Files)
+#3. Create File and Change Permission to The File
+#4. Create tgz file and Compress inside (10 txt Files)
 #5. service Change Mode (Up/Down/Restart)
 
 DONE=""
@@ -52,6 +52,8 @@ do
         then
                 echo -e "Enter a Service Name For Change Status:"
                 read SERVICE
+
+
                 echo -e "Press 1  > for Shutdown\nPress 2 > for Startup\nPress 3 > for Restart\n\t:"
                 read STATUS
                 if [ $STATUS == "1" ]

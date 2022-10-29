@@ -1,6 +1,11 @@
 #!/bin/bash
 
-# Show information about System
+# Show information about System  (( Ubuntu_18.04_AWS ))
+
+location_program=``
+
+
+
 
 echo -e "\n\n< AWS System infomation >\n\nIP address: `ip add | grep eth0 |awk 'NR==2 {print $2}'`"
 echo -e "RAM Memory: `free -h | awk 'NR==2 {print $2}'`"

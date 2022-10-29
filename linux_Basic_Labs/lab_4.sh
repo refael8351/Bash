@@ -8,7 +8,7 @@
 # 6. Kill top Proccess By PID
 
 X="no"
-while [ "True" == "True" ]
+while true
 do
 	echo -e "\n<Menu>\n1.Sys info\n2.make directory\n3.sshpass remote\n4.Service chmod\n5.Update PC\n6.Kill top Proccess By PID\n"
 	read CH

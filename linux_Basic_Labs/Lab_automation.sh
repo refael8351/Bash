@@ -3,7 +3,7 @@
 # This Script Checking if ssh-pass is installed on the sys, if not apt-installation will Start
 
 EXIT="no"
-while [ "1" == "1" ]
+while true
 do
         echo -e "\n\tHere Your Option:\n\t1.Check SSH_pass installed\n\t2.Check Network Connection possibility\n\t3.\n\t4.\n\t5. "
         read CH

@@ -34,7 +34,10 @@ def describe_instance():
         response = client.describe_instances()
         for r in response['Reservations']:
                 for i in r['Instances']:
-                        print("\nID: " + i['InstanceId'] + "\nPrivate IP Address: " + i['PublicIpAddress'] + "\n-----------------------------\n")
+                        print("\nID: " + i['InstanceId'] + "\nPublic IP Address: " + i['PublicIpAddress'] + "\n-----------------------------\n")
+        for r in response['Reservations']:
+                for i in r['Instances']:
+                        print("\nID: " + i['InstanceId'] + "\nPrivate IP Address: " + i['PrivateIpAddress'] + "\n-----------------------------\n")
 def menu():
         while("true"):
                 ch=input("Menu:\n1.Describe EC2\n2.Create EC2\n3.Start EC2\n4.Stop EC2\n5.Kill EC2\n")

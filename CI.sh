@@ -34,19 +34,21 @@ sleep 1
 echo -e "\n------------------\nCreate 1 Container Successfully ! \nFor More Info > RUN: docker ps \n\n\n"
 ID=`sudo docker ps | grep $NAME | awk '{print $1}'`
 IP=`sudo docker inspect $ID | grep IPAddress | awk 'NR==2' |  cut -d '"' -f 4`
-GUEST_PORT=`sudo docker ps | grep $NAME | awk '{print $14}' |  cut -d ":" -f 4 | cut -d "-" -f 1`
-echo $IP:$GUEST_PORT
+HOST_PORT=`sudo docker ps | grep $NAME | awk '{print $14}' |  cut -d ":" -f 4 | cut -d "-" -f 1`
+echo $IP:$HOST_PORT
 
 # Step 3:
 
+wget $IP:$HOST_PORT
 
 # Step 4:
 
 # 1) Login Docker Hub in One line, but First Insert Your Password in txt File Named > my_password.txt
 
-#echo -e "\n\nEnter User Name: "
-#read USERNAME
-#cat $pwd/my_password.txt | sudo docker login --username $USERNAME --password-stdin
+echo -e "\n\nEnter User Name: "
+read USERNAME
+cat $pwd/my_password.txt | sudo docker login --username $USERNAME --password-stdin
+
 
 # 2) Login Docker Hub Manualy
 #sudo docker login

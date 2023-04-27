@@ -6,13 +6,17 @@
 
 #!/bin/bash
 
-pwd=`pwd`
-echo -e "Choose Name For The Image: \n"
-read name
-sudo docker build -t $name . 2>$pwd/docker_log
-X=`cat docker_log | grep writing | awk '{print $4}'`
-echo $X
 
+# Step 1:
+
+pwd=`pwd`
+sudo docker images
+echo -e "\n---------------------------\nChoose a new Name For Creation Image: "
+read tag_name
+sudo docker build -t $tag_name . #2>$pwd/docker_log
+X=`cat docker_log | grep writing | awk '{print $4}'`
+echo "ID: "
+echo $X
 
 
 # Step 2:

@@ -42,16 +42,31 @@ echo $IP:$HOST_PORT
 wget $IP:$HOST_PORT
 
 # Step 4:
-
 # 1) Login Docker Hub in One line, but First Insert Your Password in txt File Named > my_password.txt
-
-echo -e "\n\nEnter User Name: "
-read USERNAME
-cat $pwd/my_password.txt | sudo docker login --username $USERNAME --password-stdin
-
-
 # 2) Login Docker Hub Manualy
-#sudo docker login
-
 # 3) Login Docker Hub Self Hosted
-#sudo docker login localhost:8080
+
+while true
+do
+        echo -e "Witch Type Do You Want To Use ??\n1) Login Auto With PASSWD in txt File\n2) Login Manualy\n3) Login Self Hosted\n\n"
+        read CH
+        if [ $CH == "1" ]
+        then
+                echo -e "\n\nEnter User Name: "
+                read USERNAME
+                cat $pwd/my_password.txt | sudo docker login --username $USERNAME --password-stdin
+        elif [ $CH == "2" ]
+        then
+                sudo docker login
+        elif [ $CH == "3" ]
+        then
+                sudo docker login $IP:$HOST_PORT
+        else
+                echo -e "\nDo You Want To Exit ?? yes / no \n"
+                read EXIT
+                if [ $EXIT == "yes" ] || [ $EXIT == "y" ]
+                then
+                        break
+        fi
+done
+

@@ -21,7 +21,7 @@ echo $X
 
 # Step 2:
 
-echo -e "\n\n------- Dont Use The Port's in The List Below -------\n\n"
+echo -e "\n\n\t\t------- Dont Use The Port's in The List Below -------\n\n"
 sudo netstat -ptuolan | awk '{print $5}'
 sleep 2
 echo -e "------------------------------------------\n\n\nSelect Port Number: "
@@ -39,9 +39,11 @@ echo $IP:$HOST_PORT
 
 # Step 3:
 
-wget $IP:$HOST_PORT
+echo -e "\n\n"
+wget --spider $IP:$HOST_PORT
+sleep 2
 
-# Step 4:
+# Step 4 < Menu >:
 # 1) Login Docker Hub in One line, but First Insert Your Password in txt File Named > my_password.txt
 # 2) Login Docker Hub Manualy
 # 3) Login Docker Hub Self Hosted

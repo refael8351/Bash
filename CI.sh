@@ -1,17 +1,20 @@
-# Warning! Run This on Same Directory as The DockerFile For Nginx There To Building Process Successfully
-# Step 1: Build image From DockerFile For Nginx
-# Step 2: Run Container From This Image
-# Step 3: Check if Container Listening To The Port We Specified For The Container in Host
-# Step 4: Upload To Docker-Hub 
-
 #!/bin/bash
+# Warning! Run This on Same Directory as The DockerFile For Nginx There To Building Process Successfully
+# Warning! Run This on Same Directory as The passwd.txt For access Login
+
+# Step 1: Build image From DockerFile For Nginx
+# Step 2: Run 1 Container
+# Step 3: Check if Container Listening To The Port We Specified For The Container (wget)
+# Step 4: Upload To Docker-Hub, if The Results Success in Every Part Of The CI Proccesses
+
+
 
 
 # Step 1:
 
 pwd=`pwd`
 sudo docker images
-echo -e "\n---------------------------\nChoose a new Name For Creation Image: "
+echo -e "\n---------------------------\nPeek a Name For Creation of The Image: "
 read tag_name
 sudo docker build -t $tag_name . #2>$pwd/docker_log
 X=`cat docker_log | grep writing | awk '{print $4}'`
@@ -21,8 +24,8 @@ echo $X
 
 # Step 2:
 
-echo -e "\n\n\t\t------- Dont Use The Port's in The List Below -------\n\n"
-sudo netstat -ptuolan | awk '{print $5}'
+echo -e "\n\n\t\t------- Dont Take The Ports are in Used -------\n\n"
+#sudo netstat -ptuolan | awk '{print $5}'
 sleep 2
 echo -e "------------------------------------------\n\n\nSelect Port Number: "
 read PORT
@@ -37,13 +40,22 @@ IP=`sudo docker inspect $ID | grep IPAddress | awk 'NR==2' |  cut -d '"' -f 4`
 HOST_PORT=`sudo docker ps | grep $NAME | awk '{print $14}' |  cut -d ":" -f 4 | cut -d "-" -f 1`
 echo $IP:$HOST_PORT
 
-# Step 3:
 
-echo -e "\n\n"
-wget --spider $IP:$HOST_PORT
-sleep 2
+# Step 3:  (Next Update is Use TMP Files)
 
-# Step 4 < Menu >:
+echo -e "Downloading The HTML File in a Few Seconds...\n\n"
+wget --spider $IP:$HOST_PORT 1>$pwd/log_wget.txt
+result=`grep -r "200" "$pwd/log_wget.txt" | awk '{print $6}'`
+if [ $result == "200" ]
+then
+	echo -e "\n\nPass Successfull\n"
+	cat log_wget.txt
+else
+	echo -e "\n\nError Unknown... Check Manual The Host-Web To Reach Connection"
+fi
+
+
+# Step 4:
 # 1) Login Docker Hub in One line, but First Insert Your Password in txt File Named > my_password.txt
 # 2) Login Docker Hub Manualy
 # 3) Login Docker Hub Self Hosted

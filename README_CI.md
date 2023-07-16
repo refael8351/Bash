@@ -1,3 +1,5 @@
+Continues integration CI  /bash
+
 Warning! Run This on Same Directory as The DockerFile For Nginx There To Building Process Successfully
 Warning! Run This on Same Directory as The passwd.txt For access Login
 

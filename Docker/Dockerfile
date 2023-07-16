@@ -2,7 +2,8 @@
 FROM ubuntu
 
 # Install Nginx Server and Some Tools
-RUN apt-get -y update \
+RUN set -x \
+	apt-get -y update && apt-get -y upgrade \
         apt-get -y install nginx \
         apt-get -y install wget \
         apt-get -y install ssh \

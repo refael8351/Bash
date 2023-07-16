@@ -29,6 +29,10 @@ echo -e "\n\n\t\t------- Dont Take The Ports are in Used -------\n\n"
 sleep 2
 echo -e "------------------------------------------\n\n\nSelect Port Number: "
 read PORT
+max='^[0-9]+$'
+if ! [[ $yournumber =~ $re ]] ; then
+   echo "error: Not a number" >&2; exit 1
+fi
 echo -e "\nEnter Container Name: "
 read NAME
 sudo docker ps | $image | awk '{print $2}'

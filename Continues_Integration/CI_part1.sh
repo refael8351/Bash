@@ -21,8 +21,8 @@ do
                 echo "Image ID: "
                 echo $X
         else
-                break
                 a="break"
+                break
 done
 if [ $a == "break" ]
 then

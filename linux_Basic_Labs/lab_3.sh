@@ -1,10 +1,11 @@
 #!/bin/bash
 
-#1. System information
-#2. Creating User + Group and Put the User in sudo Group
-#3. Create File and Change Permission to The File
-#4. Create tgz file and Compress inside (10 txt Files)
-#5. service Change Mode (Up/Down/Restart)
+# Menu:
+# 1. System information
+# 2. Creating User + Group and Put the User in sudo Group
+# 3. Create File and Change Permission to The File
+# 4. Create tgz file and Compress inside (10 txt Files)
+# 5. service Change Mode (Up/Down/Restart)
 
 DONE=""
 EXIT="no"
@@ -38,7 +39,7 @@ do
 		read FILE
 		touch $FILE.txt
 		sudo chmod 777 $FILE.txt 2>/dev/null
-		DONE+=" < Permission to New File Called: $FILE.txt > "
+		DONE+=" < Open Permission to New File Called: $FILE.txt > "
 		find ./*/$FILE.txt 2>/dev/null
 	elif [ $CH == "4" ]
 	then

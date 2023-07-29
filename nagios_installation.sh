@@ -22,9 +22,10 @@ sudo a2enmod cgi
 sudo ufw allow 'Apache'
 sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 sudo systemctl restart apache2.service
-sudo systemctl status apache2.service
+sudo systemctl status apache2.service | awk 'NR==3'
 sudo systemctl start nagios.service
-sudo systemctl status nagios.service
+sudo systemctl status nagios.service | awk 'NR==3'
+
 
 
 # Install Plugin's on Nagios
@@ -41,7 +42,7 @@ sudo make install
 # Restart After Installation of Plugin's
 
 sudo systemctl restart apache2.service
-#sudo systemctl status apache2.service
+sudo systemctl status apache2.service | awk 'NR==3'
 sudo systemctl start nagios.service
-sudo systemctl status nagios.service
+sudo systemctl status nagios.service | awk 'NR==3'
 

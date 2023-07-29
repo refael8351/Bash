@@ -16,6 +16,7 @@ sudo apt-get install fontconfig openjdk-11-jre -y 2>/dev/null
 sudo apt-get install jenkins -y
 sudo systemctl start jenkins
 sudo systemctl status jenkins | awk 'NR==3'
+sudo usermod -aG sudo jenkins
 echo -e "\n\nYour Password is:\n-------------------------------\n "
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 sleep 3

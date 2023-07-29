@@ -41,7 +41,7 @@ sudo make install
 # Restart After Installation of Plugin's
 
 sudo systemctl restart apache2.service
-sudo systemctl status apache2.service
+#sudo systemctl status apache2.service
 sudo systemctl start nagios.service
 sudo systemctl status nagios.service
 

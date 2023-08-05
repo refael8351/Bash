@@ -55,16 +55,25 @@ do
         read CH
         if [ $CH == "1" ]
         then
-                sudo docker login
+		echo -e "\nEnter a User Name:\n"
+		read USER_D
+		echo -e "\nEnter a Password:\n"
+		read PASSWORD
+                sudo docker login -u $USER_D -p $PASSWORD
 		echo -e "Enter a New Name: "
 		read COMMIT_NAME
-		sudo docker container commit $ID www8351/main:$COMMIT_NAME
+		sudo docker container commit $ID $COMMIT_NAME
+		sudo docker image tag $COMMIT_NAME:latest www8351/main
+		sudo docker image push www8351/main
         elif [ $CH == "2" ]
         then
-                sudo docker login $IP:$HOST_PORT
+                sudo docker login localhost:5000
 		echo -e "Enter a New Name: "
 		read COMMIT_NAME
-		sudo docker container commit $ID www8351/main:$COMMIT_NAME
+		sudo docker container commit $ID $COMMIT_NAME
+		sudo docker image tag $COMMIT_NAME:latest $USER_D/main
+		sudo docker image push $USER_D/main
+
         else
                 echo -e "\nDo You Want To Exit ?? yes / no \n"
                 read EXIT

@@ -1,7 +1,7 @@
 #!/bin/bash
-# Simple CI Process ( Continues Integration )
+# Simple CI Process ( Continues Integration )    [ Part 2/2 ]
 
-# Step 2:
+
 # Run 1 Container
 
 echo -e "\n\n\t\t------- Dont Choose The Port's in Used !!! -------\n\n"
@@ -30,7 +30,7 @@ HOST_PORT=`sudo docker ps | grep $NAME | awk '{print $14}' |  cut -d ":" -f 4 | 
 echo $IP:$HOST_PORT
 
 
-# Step 3:  
+
 # Check Access To The Container
 
 echo -e "Downloading The HTML File in a Few Seconds...\n\n"
@@ -41,11 +41,11 @@ then
 	echo -e "\n\nPass Successfull\n"
 	cat log_wget.txt
 else
-	echo -e "\n\nError Unknown... Check Manual The Host-Web To Reach Connection"
+	echo -e "\n\nError Unknown... Check Manual if The Host-Connection is Reachable "
 fi
 
 
-Step 4:
+
 # Login Menu Option 
 # Commit and Push From This Live Container
 
@@ -62,9 +62,9 @@ do
                 sudo docker login -u $USER_D -p $PASSWORD
 		echo -e "Enter a New Name: "
 		read COMMIT_NAME
-		sudo docker container commit $ID $COMMIT_NAME
-		sudo docker image tag $COMMIT_NAME:latest www8351/main
-		sudo docker image push www8351/main
+		sudo docker container commit $ID $COMMIT_NAME 2>/dev/null
+		sudo docker image tag $COMMIT_NAME:latest www8351/main 2>/dev/null
+ 		sudo docker image push www8351/main 2>/dev/null
         elif [ $CH == "2" ]
         then
 		echo -e "\nEnter a User Name:\n"
@@ -74,9 +74,9 @@ do
                 sudo docker login localhost:8080 -u $USER_D -p $PASSWORD
 		echo -e "Enter a New Name: "
 		read COMMIT_NAME
-		sudo docker container commit $ID $COMMIT_NAME
-		sudo docker image tag $COMMIT_NAME:latest $USER_D/main
-		sudo docker image push $USER_D/main
+		sudo docker container commit $ID $COMMIT_NAME 2>/dev/null
+		sudo docker image tag $COMMIT_NAME:latest $USER_D/main 2>/dev/null
+		sudo docker image push $USER_D/main 2>/dev/null
 
         else
                 echo -e "\nDo You Want To Exit ?? yes / no \n"

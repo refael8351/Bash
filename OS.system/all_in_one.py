@@ -5,9 +5,9 @@ from random import randint
 from time import sleep
 
 def details():
-	x=input("Enter Your Name: ")
-	y=input("Enter Your Age: ")
-	z=input("Enter Your Phone Number: ")
+	x = input("Enter Your Name: ")
+	y = input("Enter Your Age: ")
+	z = input("Enter Your Phone Number: ")
 	os.system('echo -e "Your Name is: {} \nYour Age is: {} \nYour Phone number is: {}" > details.txt'.format(x,y,z))
 
 def count():
@@ -16,10 +16,10 @@ def count():
                 sleep(0.04)
 
 def randomal():
-        for i in range(1,8):
-                C1=randint(1,10)
-                C2=randint(1,10)
-                print("\ncube1:" , C1 , "\nCube2:" , C2)
+        for i in range(1, 8):
+                C1 = randint(1, 10)
+                C2 = randint(1, 10)
+                print("\ncube1:", C1, "\nCube2:", C2)
                 if (C1 != C2):
                         print("\n\tIts Is'nt equal ")
                 else:

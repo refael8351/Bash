@@ -28,3 +28,50 @@ ID=`sudo docker ps | grep $NAME | awk '{print $1}'`
 IP=`sudo docker inspect $ID | grep IPAddress | awk 'NR==2' |  cut -d '"' -f 4`
 HOST_PORT=`sudo docker ps | grep $NAME | awk '{print $14}' |  cut -d ":" -f 4 | cut -d "-" -f 1`
 echo $IP:$HOST_PORT
+
+
+# Step 3:  
+# Check Access To The Container
+
+echo -e "Downloading The HTML File in a Few Seconds...\n\n"
+wget --spider $IP:$HOST_PORT 1>$pwd/log_wget.txt
+result=`grep -r "200" "$pwd/log_wget.txt" | awk '{print $6}'`
+if [ $result == "200" ]
+then
+	echo -e "\n\nPass Successfull\n"
+	cat log_wget.txt
+else
+	echo -e "\n\nError Unknown... Check Manual The Host-Web To Reach Connection"
+fi
+
+
+Step 4:
+# Login Menu Option 
+# Commit and Push From This Live Container
+
+while true
+do
+        echo -e "\tChoose Your Connection Type Used:\n1) Login Manualy\n2) Login Self Hosted\n\n"
+        read CH
+        if [ $CH == "1" ]
+        then
+                sudo docker login
+		echo -e "Enter a New Name: "
+		read COMMIT_NAME
+		sudo docker container commit $ID www8351/main:$COMMIT_NAME
+        elif [ $CH == "2" ]
+        then
+                sudo docker login $IP:$HOST_PORT
+		echo -e "Enter a New Name: "
+		read COMMIT_NAME
+		sudo docker container commit $ID www8351/main:$COMMIT_NAME
+        else
+                echo -e "\nDo You Want To Exit ?? yes / no \n"
+                read EXIT
+                if [ $EXIT == "yes" ] || [ $EXIT == "y" ]
+                then
+                        break
+        fi
+done
+
+

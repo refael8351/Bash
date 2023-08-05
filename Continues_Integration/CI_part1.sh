@@ -1,6 +1,7 @@
 #!/bin/bash
+# Simple CI Process ( Continues Integration )    [ Part 1/2 ]
 
-# Step 1:
+
 # Build image From DockerFile For Nginx
 
 a="done"

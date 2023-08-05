@@ -67,7 +67,11 @@ do
 		sudo docker image push www8351/main
         elif [ $CH == "2" ]
         then
-                sudo docker login localhost:5000
+		echo -e "\nEnter a User Name:\n"
+		read USER_D
+		echo -e "\nEnter a Password:\n"
+		read PASSWORD
+                sudo docker login localhost:8080 -u $USER_D -p $PASSWORD
 		echo -e "Enter a New Name: "
 		read COMMIT_NAME
 		sudo docker container commit $ID $COMMIT_NAME

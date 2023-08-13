@@ -1,2 +1,2 @@
 # My_Labs
-Projects in Python/Bash
+Projects in Bash

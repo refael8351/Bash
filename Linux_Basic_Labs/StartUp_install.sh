@@ -1,5 +1,5 @@
-# Only For Ubuntu Distribution
 #!/bin/bash
+# Only For Ubuntu/Debian Distribution
 
 sudo apt-get update
 echo -e "\ninstall Recommented Service...\n\n\n"

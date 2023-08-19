@@ -20,7 +20,10 @@ then
         fi
         sudo useradd -d /home/$user_name --create-home -p $password1 $user_name
         id $user_name
-        cd /home/$user_name
+        mkdir /home/$user_name/ 2>/dev/null
+        cd /home/$user_name/
+        echo "New User in System...Welcome" | cat > info.txt
+        cat info.txt
 else
         echo "\nThe User-Name Already in Used\nDone..\nStatus: Failed !!"
 fi

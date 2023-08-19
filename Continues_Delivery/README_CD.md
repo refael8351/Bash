@@ -16,7 +16,5 @@ Part 3:
 #   Deploy 3 Container's + IP Address of Each once
 
 Part 4:
-#   Check Access available on Default Expose Port of Each Container ( wget )
+#   Check Access available on Default Expose Port of Each Container ( Using wget Command)
 
-Part 5:
-#   if it's All Good, Push To Docker-Hub 

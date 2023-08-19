@@ -2,7 +2,7 @@
 
 # Simple CD Procces >>> Part 2
 
-# Deploy 3 Container + IP Address of Each once
+# Deploy 3 Container (Live 24H Only) and Display IP Address of Each once
 
 # Container 1
 read -p "Name of Contaier 1: " con1

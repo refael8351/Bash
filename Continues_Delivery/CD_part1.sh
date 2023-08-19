@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Simple CD Procces >>> Part 1
+# Simple CD Procces       >>>       Part  [ 1/4 ]
+
 
 # Pull Images From DockerHub
 

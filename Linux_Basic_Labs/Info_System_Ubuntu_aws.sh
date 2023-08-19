@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Show information about System  (( Ubuntu_18.04 / 20.04 / 22.04 ))
+# Show information about System on AWS_EC2  (( Ubuntu_18.04 / 20.04 / 22.04 ))
 
 
 echo -e "\n\n< System infomation >\n\nIP address: `ip add | grep eth0 |awk 'NR==2 {print $2}'`"

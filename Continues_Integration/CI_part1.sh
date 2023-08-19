@@ -7,7 +7,7 @@
 a="done"
 while true
 do
-        echo -e "# Warning! Run This on Same Directory as The DockerFile To Building Successfully !!!\n\nWarning! Run This on Same Directory as The passwd.txt For access Login !!!"
+        echo -e "\nWarning! Run This on Same Directory as The DockerFile To Building Image's Successfully !!!\n"
         sleep 3
         echo -e "\nAre you sure you want to continue (yes/no)? "
         read X
@@ -27,5 +27,9 @@ do
 done
 if [ $a == "break" ]
 then
+	sleep 2
         echo -e "Failure !!!"
+else
+	sleep 2
+	echo "Done Successfully...!!"
 fi

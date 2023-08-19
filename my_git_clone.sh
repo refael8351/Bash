@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Git Clone URL 
+
+echo "\nChecking if Git Installed...Please Wait\n"
 sudo apt-get install git -y 2>/dev/null
 
-# Git Clone URL 
-git clone https://github.com/refael8351/My_Labs
-
+git clone https://github.com/refael8351/Bash
+# Or:
+git clone https://github.com/refael8351/Python

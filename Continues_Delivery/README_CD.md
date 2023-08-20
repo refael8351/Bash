@@ -12,9 +12,7 @@ Part 2:
 #       4: Stop Container's
 #       5: Start Container's
 
-Part 3:
+Part 3-4:
 #   Deploy 3 Container's + IP Address of Each once
-
-Part 4:
 #   Check Access available on Default Expose Port of Each Container ( Using wget Command)
 
